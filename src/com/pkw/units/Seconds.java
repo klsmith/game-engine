@@ -28,6 +28,10 @@ public class Seconds extends GenericUnit<Seconds> {
 		return cache.get(value);
 	}
 
+	public static Seconds sec(double value) {
+		return ofValue(value);
+	}
+
 	private Seconds(double value) {
 		super(value, "s");
 	}

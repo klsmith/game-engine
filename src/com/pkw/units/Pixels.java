@@ -24,6 +24,10 @@ public class Pixels extends GenericUnit<Pixels> {
 		return cache.get(value);
 	}
 
+	public static Pixels px(int value) {
+		return ofValue(value);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {

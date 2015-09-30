@@ -28,6 +28,10 @@ public class MilliSeconds extends GenericUnit<MilliSeconds> {
 		return cache.get(value);
 	}
 
+	public static MilliSeconds ms(double value) {
+		return ofValue(value);
+	}
+
 	private MilliSeconds(double value) {
 		super(value, "ms");
 	}

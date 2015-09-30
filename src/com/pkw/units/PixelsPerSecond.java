@@ -28,6 +28,10 @@ public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
 		return cache.get(value);
 	}
 
+	public static PixelsPerSecond pps(double value) {
+		return ofValue(value);
+	}
+
 	public Pixels apply(MilliSeconds elapsed) {
 		return apply(elapsed.toSeconds());
 	}

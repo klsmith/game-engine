@@ -24,6 +24,10 @@ final public class Frames extends GenericUnit<Frames> {
 		return cache.get(value);
 	}
 
+	public static Frames frames(int value) {
+		return ofValue(value);
+	}
+
 	@Override
 	protected Frames ofValue(Double value) {
 		return Frames.ofValue(value.doubleValue());

@@ -28,6 +28,10 @@ public class FramesPerSecond extends GenericUnit<FramesPerSecond> {
 		return cache.get(value);
 	}
 
+	public static FramesPerSecond fps(double value) {
+		return ofValue(value);
+	}
+
 	public MilliSeconds milliSecondsPerFrame() {
 		return MilliSeconds.PER_SECOND.divideBy(doubleValue());
 	}
