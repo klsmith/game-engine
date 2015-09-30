@@ -1,7 +1,5 @@
 package com.pkw.test;
 
-import java.awt.Rectangle;
-
 import com.pkw.game.swing.AFAPSwingGame;
 import com.pkw.game.swing.util.ExpandedGraphics;
 import com.pkw.util.FramesPerSecondCounter;
