@@ -39,10 +39,4 @@ final public class Frames extends GenericUnit<Frames> {
 			return false;
 		}
 	}
-
-	@Override
-	public int hashCode() {
-		return intValue();
-	}
-
 }
