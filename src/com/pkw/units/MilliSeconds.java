@@ -52,7 +52,7 @@ public class MilliSeconds extends GenericUnit<MilliSeconds> {
 	}
 
 	@Override
-	protected MilliSeconds ofValue(Double value) {
+	protected MilliSeconds from(Double value) {
 		return MilliSeconds.ofValue(value.doubleValue());
 	}
 

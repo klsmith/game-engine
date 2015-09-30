@@ -37,7 +37,7 @@ public class FramesPerSecond extends GenericUnit<FramesPerSecond> {
 	}
 
 	@Override
-	protected FramesPerSecond ofValue(Double value) {
+	protected FramesPerSecond from(Double value) {
 		return FramesPerSecond.ofValue(value.doubleValue());
 	}
 

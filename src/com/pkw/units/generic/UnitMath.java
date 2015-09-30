@@ -1,9 +1,7 @@
 package com.pkw.units.generic;
 
-
 public interface UnitMath<U extends Unit> {
 
-	
 	public U subtract(U other);
 
 	public U add(U other);

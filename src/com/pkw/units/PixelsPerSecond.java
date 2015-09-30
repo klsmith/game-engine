@@ -41,7 +41,7 @@ public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
 	}
 
 	@Override
-	protected PixelsPerSecond ofValue(Double value) {
+	protected PixelsPerSecond from(Double value) {
 		return PixelsPerSecond.ofValue(value.doubleValue());
 	}
 }

@@ -40,7 +40,7 @@ public class Pixels extends GenericUnit<Pixels> {
 	}
 
 	@Override
-	protected Pixels ofValue(Double value) {
+	protected Pixels from(Double value) {
 		// TODO Auto-generated method stub
 		return null;
 	}

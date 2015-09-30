@@ -40,16 +40,16 @@ public abstract class GenericUnit<U extends Unit> implements Unit, UnitMath<U> {
 		return value.doubleValue();
 	}
 
-	protected abstract U ofValue(Double value);
+	protected abstract U from(Double value);
 
 	@Override
 	public U add(U other) {
-		return ofValue(doubleValue() + other.doubleValue());
+		return from(doubleValue() + other.doubleValue());
 	}
 
 	@Override
 	public U subtract(U other) {
-		return ofValue(doubleValue() - other.doubleValue());
+		return from(doubleValue() - other.doubleValue());
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public abstract class GenericUnit<U extends Unit> implements Unit, UnitMath<U> {
 
 	@Override
 	public U divideBy(double scalar) {
-		return ofValue(doubleValue() / scalar);
+		return from(doubleValue() / scalar);
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public abstract class GenericUnit<U extends Unit> implements Unit, UnitMath<U> {
 
 	@Override
 	public U multiplyBy(double scalar) {
-		return ofValue(doubleValue() * scalar);
+		return from(doubleValue() * scalar);
 	}
 
 	@Override

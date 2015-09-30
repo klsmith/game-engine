@@ -14,11 +14,15 @@ public class Seconds extends GenericUnit<Seconds> {
 	}
 
 	public static Seconds ofValue(int value) {
-		return Seconds.ofValue((double) value);
+		return seconds((double) value);
 	}
 
 	public static Seconds ofValue(long value) {
-		return Seconds.ofValue((double) value);
+		return seconds((double) value);
+	}
+
+	public static Seconds seconds(double value) {
+		return ofValue(value);
 	}
 
 	public static Seconds ofValue(double value) {
@@ -26,10 +30,6 @@ public class Seconds extends GenericUnit<Seconds> {
 			cache.put(value, new Seconds(value));
 		}
 		return cache.get(value);
-	}
-
-	public static Seconds sec(double value) {
-		return ofValue(value);
 	}
 
 	private Seconds(double value) {
@@ -52,7 +52,7 @@ public class Seconds extends GenericUnit<Seconds> {
 	}
 
 	@Override
-	protected Seconds ofValue(Double value) {
+	protected Seconds from(Double value) {
 		return Seconds.ofValue(value.doubleValue());
 	}
 }

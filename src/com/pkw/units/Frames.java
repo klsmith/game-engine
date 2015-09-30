@@ -29,7 +29,7 @@ final public class Frames extends GenericUnit<Frames> {
 	}
 
 	@Override
-	protected Frames ofValue(Double value) {
+	protected Frames from(Double value) {
 		return Frames.ofValue(value.doubleValue());
 	}
 
