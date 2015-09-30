@@ -2,6 +2,7 @@ package com.pkw.game.swing;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
@@ -19,9 +20,9 @@ public abstract class SwingGame implements Game {
 		isRunning = false;
 		frame = new JFrame(title);
 		frame.setSize(width, height);
-		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+		frame.addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+			public void windowClosing(WindowEvent windowEvent) {
 				stop();
 			}
 		});
