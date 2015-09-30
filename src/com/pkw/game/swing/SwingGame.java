@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.pkw.game.Game;
+import com.pkw.game.swing.util.ExpandedGraphics;
 
 public abstract class SwingGame implements Game {
 
@@ -29,13 +30,13 @@ public abstract class SwingGame implements Game {
 
 			@Override
 			public void paint(Graphics graphics) {
-				draw((Graphics2D) graphics);
+				draw(ExpandedGraphics.from((Graphics2D) graphics));
 			}
 		});
 		frame.setVisible(true);
 	}
 
-	public abstract void draw(Graphics2D graphics);
+	public abstract void draw(ExpandedGraphics graphics);
 
 	final public JFrame frame() {
 		return frame;

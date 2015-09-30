@@ -1,21 +1,19 @@
 package com.pkw.test;
 
-import java.awt.Graphics2D;
-
 import com.pkw.game.swing.CatchUpSwingGame;
-import com.pkw.game.swing.util.TextGraphics;
+import com.pkw.game.swing.util.ExpandedGraphics;
 import com.pkw.units.FramesPerSecond;
 import com.pkw.units.MilliSeconds;
-import com.pkw.util.PerSecondCounter;
+import com.pkw.util.FramesPerSecondCounter;
 
 public class TestCatchUpSwingGame extends CatchUpSwingGame {
 	private static final FramesPerSecond TARGET_FPS = FramesPerSecond
 			.ofValue(60);
-	private PerSecondCounter fpsCounter;
+	private FramesPerSecondCounter fpsCounter;
 
 	protected TestCatchUpSwingGame() {
 		super("TestCatchUpSwingGame", 480, 320, TARGET_FPS);
-		fpsCounter = PerSecondCounter.create();
+		fpsCounter = FramesPerSecondCounter.create();
 	}
 
 	@Override
@@ -31,16 +29,14 @@ public class TestCatchUpSwingGame extends CatchUpSwingGame {
 	}
 
 	@Override
-	public void draw(Graphics2D graphics, MilliSeconds delta) {
+	public void draw(ExpandedGraphics graphics, MilliSeconds delta) {
 		fpsCounter.count();
-		graphics.drawString("FPS: " + fpsCounter.current(), 32, 32);
-		TextGraphics
-				.drawString(
-						graphics,
-						"This game engine executes the step and draw events\n"
-								+ "asynchronosly to eachother and forces the draw event\n"
-								+ "to 'Catch Up' with a delta value.\n"
-								+ "Desired FPS:" + TARGET_FPS, 32, 64);
+		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString(
+				"This game engine executes the step and draw events\n"
+						+ "asynchronosly to eachother and forces the draw event\n"
+						+ "to 'Catch Up' with a delta value.\n"
+						+ "Desired FPS:" + TARGET_FPS, 32, 64);
 	}
 
 	@Override

@@ -1,9 +1,8 @@
 package com.pkw.game.swing;
 
-import java.awt.Graphics2D;
-
 import com.pkw.game.CatchUpGame;
 import com.pkw.game.engine.CatchUpEngine;
+import com.pkw.game.swing.util.ExpandedGraphics;
 import com.pkw.units.FramesPerSecond;
 import com.pkw.units.MilliSeconds;
 
@@ -29,10 +28,10 @@ public abstract class CatchUpSwingGame extends SwingGame implements CatchUpGame 
 	}
 
 	@Override
-	public void draw(Graphics2D graphics) {
+	public void draw(ExpandedGraphics graphics) {
 		draw(graphics, delta);
 	}
 
-	public abstract void draw(Graphics2D graphics, MilliSeconds delta);
+	public abstract void draw(ExpandedGraphics graphics, MilliSeconds delta);
 
 }

@@ -1,18 +1,16 @@
 package com.pkw.test;
 
-import java.awt.Graphics2D;
-
 import com.pkw.game.swing.FluidTimeSwingGame;
-import com.pkw.game.swing.util.TextGraphics;
+import com.pkw.game.swing.util.ExpandedGraphics;
 import com.pkw.units.MilliSeconds;
-import com.pkw.util.PerSecondCounter;
+import com.pkw.util.FramesPerSecondCounter;
 
 public class TestFluidTimeSwingGame extends FluidTimeSwingGame {
-	private PerSecondCounter fpsCounter;
+	private FramesPerSecondCounter fpsCounter;
 
 	protected TestFluidTimeSwingGame() {
 		super("TestFluidTimeSwingGame", 480, 320);
-		fpsCounter = PerSecondCounter.create();
+		fpsCounter = FramesPerSecondCounter.create();
 	}
 
 	@Override
@@ -28,13 +26,12 @@ public class TestFluidTimeSwingGame extends FluidTimeSwingGame {
 	}
 
 	@Override
-	public void draw(Graphics2D graphics) {
+	public void draw(ExpandedGraphics graphics) {
 		fpsCounter.count();
-		graphics.drawString("FPS: " + fpsCounter.current(), 32, 32);
-		TextGraphics.drawString(graphics,
-				"This game engine will run with the highest\n"
-						+ "fps possible while forcing the step event to\n"
-						+ "update based on real time in ms.", 32, 64);
+		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString("This game engine will run with the highest\n"
+				+ "fps possible while forcing the step event to\n"
+				+ "update based on real time in ms.", 32, 64);
 	}
 
 	@Override

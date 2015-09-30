@@ -3,15 +3,16 @@ package com.pkw.util;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.pkw.units.FramesPerSecond;
 import com.pkw.units.MilliSeconds;
 
-public class PerSecondCounter {
+public class FramesPerSecondCounter {
 
 	private int count;
 	private int current;
 	private Timer timer;
 
-	private PerSecondCounter() {
+	private FramesPerSecondCounter() {
 		reset();
 		this.current = 0;
 		timer = new Timer("perSecondTimer");
@@ -24,8 +25,8 @@ public class PerSecondCounter {
 				MilliSeconds.PER_SECOND.longValue());
 	}
 
-	public static PerSecondCounter create() {
-		return new PerSecondCounter();
+	public static FramesPerSecondCounter create() {
+		return new FramesPerSecondCounter();
 	}
 
 	public void reset() {
@@ -41,7 +42,7 @@ public class PerSecondCounter {
 		count++;
 	}
 
-	public int current() {
-		return current;
+	public FramesPerSecond current() {
+		return FramesPerSecond.ofValue(current);
 	}
 }
