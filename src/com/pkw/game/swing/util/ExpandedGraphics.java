@@ -14,7 +14,7 @@ public class ExpandedGraphics {
 		return new ExpandedGraphics(graphics);
 	}
 
-	public Graphics2D graphics() {
+	public Graphics2D unexpanded() {
 		return graphics;
 	}
 
