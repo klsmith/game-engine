@@ -1,6 +1,6 @@
 package com.pkw.units.generic;
 
-public interface Unit {
+public interface UnitValue {
 
 	public String unitName();
 

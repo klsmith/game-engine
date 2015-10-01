@@ -1,6 +1,6 @@
 package com.pkw.units.generic;
 
-public interface UnitMath<U extends Unit> {
+public interface UnitMath<U extends UnitValue> {
 
 	public U subtract(U other);
 
