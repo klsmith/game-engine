@@ -50,7 +50,13 @@ public class TestPlayer {
 				default:
 					break;
 				}
-			default:
+			case PRESSED:
+				switch (input.value()) {
+				case KEY_A:
+					return LEFT_HOLDING_RIGHT;
+				default:
+					break;
+				}
 				break;
 			}
 			return this;
@@ -73,6 +79,37 @@ public class TestPlayer {
 				default:
 					break;
 				}
+			case PRESSED:
+				switch (input.value()) {
+				case KEY_D:
+					return RIGHT_HOLDING_LEFT;
+				default:
+					break;
+				}
+				break;
+			}
+			return this;
+		}
+
+		@Override
+		public void step() {
+			position.x -= SPEED;
+		}
+	};
+
+	private State LEFT_HOLDING_RIGHT = new State() {
+		@Override
+		public State apply(Input input) {
+			switch (input.type()) {
+			case RELEASED:
+				switch (input.value()) {
+				case KEY_A:
+					return RIGHT;
+				case KEY_D:
+					return LEFT;
+				default:
+					break;
+				}
 			default:
 				break;
 			}
@@ -85,6 +122,31 @@ public class TestPlayer {
 		}
 	};
 
+	private State RIGHT_HOLDING_LEFT = new State() {
+		@Override
+		public State apply(Input input) {
+			switch (input.type()) {
+			case RELEASED:
+				switch (input.value()) {
+				case KEY_D:
+					return LEFT;
+				case KEY_A:
+					return RIGHT;
+				default:
+					break;
+				}
+			default:
+				break;
+			}
+			return this;
+		}
+
+		@Override
+		public void step() {
+			position.x += SPEED;
+		}
+	};
+
 	private State UP = new State() {
 		@Override
 		public State apply(Input input) {
@@ -93,6 +155,36 @@ public class TestPlayer {
 				switch (input.value()) {
 				case KEY_W:
 					return VER_STOPPED;
+				default:
+					break;
+				}
+			case PRESSED:
+				switch (input.value()) {
+				case KEY_S:
+					return DOWN_HOLDING_UP;
+				default:
+					break;
+				}
+			}
+			return this;
+		}
+
+		@Override
+		public void step() {
+			position.y -= SPEED;
+		}
+	};
+
+	private State UP_HOLDING_DOWN = new State() {
+		@Override
+		public State apply(Input input) {
+			switch (input.type()) {
+			case RELEASED:
+				switch (input.value()) {
+				case KEY_W:
+					return DOWN;
+				case KEY_S:
+					return UP;
 				default:
 					break;
 				}
@@ -108,6 +200,31 @@ public class TestPlayer {
 		}
 	};
 
+	private State DOWN_HOLDING_UP = new State() {
+		@Override
+		public State apply(Input input) {
+			switch (input.type()) {
+			case RELEASED:
+				switch (input.value()) {
+				case KEY_S:
+					return UP;
+				case KEY_W:
+					return DOWN;
+				default:
+					break;
+				}
+			default:
+				break;
+			}
+			return this;
+		}
+
+		@Override
+		public void step() {
+			position.y += SPEED;
+		}
+	};
+
 	private State DOWN = new State() {
 		@Override
 		public State apply(Input input) {
@@ -119,8 +236,13 @@ public class TestPlayer {
 				default:
 					break;
 				}
-			default:
-				break;
+			case PRESSED:
+				switch (input.value()) {
+				case KEY_W:
+					return UP_HOLDING_DOWN;
+				default:
+					break;
+				}
 			}
 			return this;
 		}
