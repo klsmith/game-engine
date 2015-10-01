@@ -2,6 +2,7 @@ package com.pkw.test;
 
 import com.pkw.game.swing.AFAPSwingGame;
 import com.pkw.game.swing.util.ExpandedGraphics;
+import com.pkw.test.player.TestPlayer;
 import com.pkw.util.FramesPerSecondCounter;
 
 final public class TestAFAPSwingGame extends AFAPSwingGame {

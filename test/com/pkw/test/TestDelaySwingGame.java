@@ -4,6 +4,7 @@ import static com.pkw.units.FramesPerSecond.fps;
 
 import com.pkw.game.swing.DelaySwingGame;
 import com.pkw.game.swing.util.ExpandedGraphics;
+import com.pkw.test.player.TestPlayer;
 import com.pkw.units.FramesPerSecond;
 import com.pkw.util.FramesPerSecondCounter;
 
