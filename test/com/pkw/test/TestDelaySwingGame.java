@@ -2,6 +2,8 @@ package com.pkw.test;
 
 import static com.pkw.units.FramesPerSecond.fps;
 
+import java.awt.Color;
+
 import com.pkw.game.swing.DelaySwingGame;
 import com.pkw.game.swing.util.ExpandedGraphics;
 import com.pkw.test.player.TestPlayer;
@@ -35,12 +37,14 @@ public class TestDelaySwingGame extends DelaySwingGame {
 
 	@Override
 	public void draw(ExpandedGraphics graphics) {
+		player.draw(graphics);
+		graphics.unexpanded().setColor(Color.BLACK);
 		fpsCounter.count();
 		graphics.drawString(fpsCounter.current().toString(), 32, 32);
 		graphics.drawString("This game engine 'Delays' after step and draw\n"
 				+ "events complete to reach the desired FPS.\n"
-				+ "Desired FPS: " + TARGET_FPS, 32, 64);
-		player.draw(graphics);
+				+ "Desired FPS: " + TARGET_FPS + "\n(" + player.x() + ", "
+				+ player.y() + ")", 32, 64);
 	}
 
 	@Override
