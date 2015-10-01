@@ -1,5 +1,7 @@
 package com.pkw.game.engine;
 
+import static com.pkw.units.MilliSeconds.ms;
+
 import com.pkw.game.DelayGame;
 import com.pkw.units.FramesPerSecond;
 import com.pkw.units.MilliSeconds;
@@ -33,8 +35,11 @@ public class DelayEngine extends GameEngine {
 			game.step();
 			game.draw();
 			try {
-				Thread.sleep(start.add(fps.milliSecondsPerFrame())
-						.subtract(MilliSeconds.now()).longValue());
+				MilliSeconds sleepTime = start.add(fps.milliSecondsPerFrame())
+						.subtract(MilliSeconds.now());
+				if (sleepTime.isGreaterThan(ms(0))) {
+					Thread.sleep(sleepTime.longValue());
+				}
 			} catch (InterruptedException e) {
 			}
 		}
