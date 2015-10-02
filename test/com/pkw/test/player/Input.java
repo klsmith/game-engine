@@ -1,12 +1,8 @@
 package com.pkw.test.player;
 
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Input {
-
-	public static Cache cache = Cache.create();
 
 	private Type type;
 	private Value value;
@@ -17,7 +13,7 @@ public class Input {
 	}
 
 	public static Input input(Type type, Value value) {
-		return cache.cache(type, value);
+		return new Input(type, value);
 	}
 
 	public static Input from(Type type, KeyEvent keyEvent) {
@@ -30,6 +26,20 @@ public class Input {
 
 	public Value value() {
 		return value;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		} else if (obj == this) {
+			return true;
+		} else if (obj instanceof Input) {
+			Input other = (Input) obj;
+			return (type == other.type) && (value == other.value);
+		} else {
+			return false;
+		}
 	}
 
 	public static enum Type {
@@ -52,28 +62,6 @@ public class Input {
 			default:
 				return KEY_NONE;
 			}
-		}
-	}
-
-	public static class Cache {
-		private Map<Type, Map<Value, Input>> cache;
-
-		private Cache() {
-			cache = new HashMap<>();
-		}
-
-		public static Cache create() {
-			return new Cache();
-		}
-
-		public Input cache(Type type, Value value) {
-			if (!cache.containsKey(type)) {
-				cache.put(type, new HashMap<>());
-			}
-			if (!cache.get(type).containsKey(value)) {
-				cache.get(type).put(value, new Input(type, value));
-			}
-			return cache.get(type).get(value);
 		}
 	}
 }

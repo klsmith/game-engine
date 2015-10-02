@@ -1,13 +1,8 @@
 package com.pkw.units;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.pkw.units.generic.GenericUnit;
 
 public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
-
-	private static Map<Double, PixelsPerSecond> cache = new HashMap<>();
 
 	private PixelsPerSecond(double value) {
 		super(value, "pps");
@@ -22,10 +17,7 @@ public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
 	}
 
 	public static PixelsPerSecond ofValue(double value) {
-		if (!cache.containsKey(value)) {
-			cache.put(value, new PixelsPerSecond(value));
-		}
-		return cache.get(value);
+		return new PixelsPerSecond(value);
 	}
 
 	public static PixelsPerSecond pps(double value) {

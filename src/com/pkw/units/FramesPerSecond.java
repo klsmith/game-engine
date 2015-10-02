@@ -1,13 +1,8 @@
 package com.pkw.units;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.pkw.units.generic.GenericUnit;
 
 public class FramesPerSecond extends GenericUnit<FramesPerSecond> {
-
-	private static Map<Double, FramesPerSecond> cache = new HashMap<>();
 
 	private FramesPerSecond(double value) {
 		super(value, "fps");
@@ -22,10 +17,7 @@ public class FramesPerSecond extends GenericUnit<FramesPerSecond> {
 	}
 
 	public static FramesPerSecond ofValue(double value) {
-		if (!cache.containsKey(value)) {
-			cache.put(value, new FramesPerSecond(value));
-		}
-		return cache.get(value);
+		return new FramesPerSecond(value);
 	}
 
 	public static FramesPerSecond fps(double value) {

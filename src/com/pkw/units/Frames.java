@@ -1,13 +1,8 @@
 package com.pkw.units;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.pkw.units.generic.GenericUnit;
 
 final public class Frames extends GenericUnit<Frames> {
-
-	private static Map<Integer, Frames> cache = new HashMap<>();
 
 	private Frames(int value) {
 		super((double) value, "frames");
@@ -18,10 +13,7 @@ final public class Frames extends GenericUnit<Frames> {
 	}
 
 	public static Frames ofValue(int value) {
-		if (!cache.containsKey(value)) {
-			cache.put(value, new Frames(value));
-		}
-		return cache.get(value);
+		return new Frames(value);
 	}
 
 	public static Frames frames(int value) {

@@ -1,13 +1,8 @@
 package com.pkw.units;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.pkw.units.generic.GenericUnit;
 
 public class Seconds extends GenericUnit<Seconds> {
-
-	private static Map<Double, Seconds> cache = new HashMap<>();
 
 	public static Seconds now() {
 		return MilliSeconds.now().toSeconds();
@@ -26,10 +21,7 @@ public class Seconds extends GenericUnit<Seconds> {
 	}
 
 	public static Seconds ofValue(double value) {
-		if (!cache.containsKey(value)) {
-			cache.put(value, new Seconds(value));
-		}
-		return cache.get(value);
+		return new Seconds(value);
 	}
 
 	private Seconds(double value) {
