@@ -1,6 +1,7 @@
 package com.pkw.units.generic;
 
-public abstract class GenericUnit<U extends UnitValue> implements UnitValue, UnitMath<U> {
+public abstract class GenericUnit<U extends UnitValue<U>> implements
+		UnitValue<U> {
 
 	private Double value;
 	private String unitName;
