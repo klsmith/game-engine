@@ -11,4 +11,5 @@ public abstract class GenericUnitPerUnit<U extends UnitValue, O extends UnitValu
 		this(unit.doubleValue() / perUnit.doubleValue(), unit.unitName() + "/"
 				+ perUnit.unitName());
 	}
+
 }
