@@ -1,15 +1,19 @@
 package com.pkw.units;
 
-import com.pkw.units.generic.GenericUnit;
+import static com.pkw.units.Pixels.pixels;
+import static com.pkw.units.Seconds.seconds;
 
-public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
+import com.pkw.units.generic.GenericUnitPerUnit;
 
-	private PixelsPerSecond(double value) {
-		super(value, "pps");
+public class PixelsPerSecond extends
+		GenericUnitPerUnit<Pixels, Seconds, PixelsPerSecond> {
+
+	private PixelsPerSecond(Pixels pixels, Seconds seconds) {
+		super(pixels, seconds);
 	}
 
 	public static PixelsPerSecond from(Pixels pixels, Seconds seconds) {
-		return from(pixels.intValue(), seconds.doubleValue());
+		return new PixelsPerSecond(pixels, seconds);
 	}
 
 	public static PixelsPerSecond from(int pixels, double seconds) {
@@ -17,7 +21,7 @@ public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
 	}
 
 	public static PixelsPerSecond ofValue(double value) {
-		return new PixelsPerSecond(value);
+		return from(pixels((int) value), seconds(1));
 	}
 
 	public static PixelsPerSecond pps(double value) {
@@ -30,6 +34,11 @@ public class PixelsPerSecond extends GenericUnit<PixelsPerSecond> {
 
 	public Pixels apply(Seconds elapsed) {
 		return Pixels.ofValue(doubleValue() / elapsed.doubleValue());
+	}
+
+	@Override
+	public String unitName() {
+		return "pps";
 	}
 
 	@Override

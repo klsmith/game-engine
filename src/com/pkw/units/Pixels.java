@@ -16,7 +16,7 @@ public class Pixels extends GenericUnit<Pixels> {
 		return new Pixels(value);
 	}
 
-	public static Pixels px(int value) {
+	public static Pixels pixels(int value) {
 		return ofValue(value);
 	}
 
