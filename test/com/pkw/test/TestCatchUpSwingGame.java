@@ -31,7 +31,7 @@ public class TestCatchUpSwingGame extends CatchUpSwingGame {
 	@Override
 	public void draw(ExpandedGraphics graphics, MilliSeconds delta) {
 		fpsCounter.count();
-		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString(fpsCounter.currentFPS().toString(), 32, 32);
 		graphics.drawString(
 				"This game engine executes the step and draw events\n"
 						+ "asynchronosly to eachother and forces the draw event\n"

@@ -28,7 +28,7 @@ public class TestFluidTimeSwingGame extends FluidTimeSwingGame {
 	@Override
 	public void draw(ExpandedGraphics graphics) {
 		fpsCounter.count();
-		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString(fpsCounter.currentFPS().toString(), 32, 32);
 		graphics.drawString("This game engine will run with the highest\n"
 				+ "fps possible while forcing the step event to\n"
 				+ "update based on real time in ms.", 32, 64);

@@ -4,23 +4,23 @@ import java.awt.event.KeyEvent;
 
 public class Input {
 
-	private Type type;
+	private Action type;
 	private Value value;
 
-	private Input(Type type, Value value) {
+	private Input(Action type, Value value) {
 		this.type = type;
 		this.value = value;
 	}
 
-	public static Input input(Type type, Value value) {
+	public static Input input(Action type, Value value) {
 		return new Input(type, value);
 	}
 
-	public static Input from(Type type, KeyEvent keyEvent) {
+	public static Input from(Action type, KeyEvent keyEvent) {
 		return input(type, Value.from(keyEvent));
 	}
 
-	public Type type() {
+	public Action action() {
 		return type;
 	}
 
@@ -42,7 +42,7 @@ public class Input {
 		}
 	}
 
-	public static enum Type {
+	public static enum Action {
 		PRESSED, RELEASED;
 	}
 

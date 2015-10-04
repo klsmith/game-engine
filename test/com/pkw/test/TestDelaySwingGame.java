@@ -40,7 +40,7 @@ public class TestDelaySwingGame extends DelaySwingGame {
 		player.draw(graphics);
 		graphics.unexpanded().setColor(Color.BLACK);
 		fpsCounter.count();
-		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString(fpsCounter.currentFPS().toString(), 32, 32);
 		graphics.drawString("This game engine 'Delays' after step and draw\n"
 				+ "events complete to reach the desired FPS.\n"
 				+ "Desired FPS: " + TARGET_FPS + "\n(" + player.x() + ", "

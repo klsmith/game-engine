@@ -6,14 +6,13 @@ import java.util.TimerTask;
 import com.pkw.units.FramesPerSecond;
 import com.pkw.units.MilliSeconds;
 
-public class FramesPerSecondCounter {
+public class FramesPerSecondCounter extends Counter {
 
-	private int count;
 	private int current;
 	private Timer timer;
 
 	private FramesPerSecondCounter() {
-		reset();
+		super();
 		this.current = 0;
 		timer = new Timer("perSecondTimer");
 		timer.schedule(new TimerTask() {
@@ -29,20 +28,17 @@ public class FramesPerSecondCounter {
 		return new FramesPerSecondCounter();
 	}
 
-	public void reset() {
-		count = 0;
-	}
-
 	private void commit() {
-		current = count;
+		current = super.current();
 		reset();
 	}
 
-	public void count() {
-		count++;
+	public FramesPerSecond currentFPS() {
+		return FramesPerSecond.ofValue(current);
 	}
 
-	public FramesPerSecond current() {
-		return FramesPerSecond.ofValue(current);
+	@Override
+	public int current() {
+		return current;
 	}
 }

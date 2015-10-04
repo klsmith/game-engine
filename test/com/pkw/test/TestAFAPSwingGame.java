@@ -33,7 +33,7 @@ final public class TestAFAPSwingGame extends AFAPSwingGame {
 	@Override
 	public void draw(ExpandedGraphics graphics) {
 		fpsCounter.count();
-		graphics.drawString(fpsCounter.current().toString(), 32, 32);
+		graphics.drawString(fpsCounter.currentFPS().toString(), 32, 32);
 		graphics.drawString("This game engine runs 'As Fast As Possible'.", 32,
 				64);
 		player.draw(graphics);

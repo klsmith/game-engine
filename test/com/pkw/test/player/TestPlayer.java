@@ -1,7 +1,7 @@
 package com.pkw.test.player;
 
-import static com.pkw.test.player.Input.Type.PRESSED;
-import static com.pkw.test.player.Input.Type.RELEASED;
+import static com.pkw.test.player.Input.Action.PRESSED;
+import static com.pkw.test.player.Input.Action.RELEASED;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -100,7 +100,7 @@ public class TestPlayer {
 	private State HOR_STOPPED = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case PRESSED:
 				switch (input.value()) {
 				case KEY_A:
@@ -124,7 +124,7 @@ public class TestPlayer {
 	private State RIGHT = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_D:
@@ -153,7 +153,7 @@ public class TestPlayer {
 	private State LEFT = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_A:
@@ -182,7 +182,7 @@ public class TestPlayer {
 	private State LEFT_HOLDING_RIGHT = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_A:
@@ -207,7 +207,7 @@ public class TestPlayer {
 	private State RIGHT_HOLDING_LEFT = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_D:
@@ -232,7 +232,7 @@ public class TestPlayer {
 	private State UP = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_W:
@@ -260,7 +260,7 @@ public class TestPlayer {
 	private State UP_HOLDING_DOWN = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_W:
@@ -285,7 +285,7 @@ public class TestPlayer {
 	private State DOWN_HOLDING_UP = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_S:
@@ -310,7 +310,7 @@ public class TestPlayer {
 	private State DOWN = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case RELEASED:
 				switch (input.value()) {
 				case KEY_S:
@@ -338,7 +338,7 @@ public class TestPlayer {
 	private State VER_STOPPED = new State() {
 		@Override
 		public State apply(Input input) {
-			switch (input.type()) {
+			switch (input.action()) {
 			case PRESSED:
 				switch (input.value()) {
 				case KEY_W:
