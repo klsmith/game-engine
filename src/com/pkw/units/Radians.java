@@ -20,4 +20,9 @@ public class Radians extends Direction<Radians> {
 	public Degrees toDegrees() {
 		return null;
 	}
+
+	@Override
+	public Radians toRadians() {
+		return this;
+	}
 }
