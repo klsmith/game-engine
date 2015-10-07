@@ -16,7 +16,7 @@ public class TestDelaySwingGame extends DelaySwingGame {
 	private TestPlayer player;
 
 	protected TestDelaySwingGame() {
-		super("TestAFAPSwingGame", 480, 320, TARGET_FPS);
+		super("TestDelaySwingGame", 480, 320, TARGET_FPS);
 		fpsCounter = FramesPerSecondCounter.create();
 		player = TestPlayer.createAt(128, 128, 32, 32);
 		frame().addKeyListener(player.keyListener());
