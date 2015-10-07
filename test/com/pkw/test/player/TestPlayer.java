@@ -2,25 +2,26 @@ package com.pkw.test.player;
 
 import static com.pkw.test.player.Input.Action.PRESSED;
 import static com.pkw.test.player.Input.Action.RELEASED;
+import static com.pkw.units.Pixels.pixels;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import com.pkw.game.swing.util.ExpandedGraphics;
+import com.pkw.units.generic.Position;
 
 public class TestPlayer {
 	private static final int SPEED = 4;
 
-	private Point position;
+	private Position position;
 	private Dimension size;
 	private KeyListener keyListener;
 	private State hState;
 	private State vState;
 
-	private TestPlayer(Point startPosition, Dimension size) {
+	private TestPlayer(Position startPosition, Dimension size) {
 		this.position = startPosition;
 		this.size = size;
 		hState = HOR_STOPPED;
@@ -48,19 +49,20 @@ public class TestPlayer {
 	}
 
 	public static TestPlayer createAt(int x, int y, int width, int height) {
-		return new TestPlayer(new Point(x, y), new Dimension(width, height));
+		return new TestPlayer(Position.position(x, y), new Dimension(width,
+				height));
 	}
 
-	public Point position() {
-		return new Point(x(), y());
+	public Position position() {
+		return position;
 	}
 
 	public int x() {
-		return position.x;
+		return position.x().intValue();
 	}
 
 	public int y() {
-		return position.y;
+		return position.y().intValue();
 	}
 
 	public int width() {
@@ -78,15 +80,15 @@ public class TestPlayer {
 	public void step() {
 		hState.step();
 		vState.step();
-		if (position.x < 0) {
-			position.x = 0;
-		} else if (position.x > 431) {
-			position.x = 431;
+		if (position.x().isLessThan(pixels(0))) {
+			position = position.whereXIs(0);
+		} else if (position.x().isGreaterThan(pixels(431))) {
+			position = position.whereXIs(431);
 		}
-		if (position.y < 0) {
-			position.y = 0;
-		} else if (position.y > 248) {
-			position.y = 248;
+		if (position.y().isLessThan(pixels(0))) {
+			position = position.whereYIs(0);
+		} else if (position.y().isGreaterThan(pixels(248))) {
+			position = position.whereYIs(248);
 		}
 	}
 
@@ -146,7 +148,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.x += SPEED;
+			position = position.translateX(SPEED);
 		}
 	};
 
@@ -175,7 +177,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.x -= SPEED;
+			position = position.translateX(-SPEED);
 		}
 	};
 
@@ -200,7 +202,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.x -= SPEED;
+			position = position.translateX(-SPEED);
 		}
 	};
 
@@ -225,7 +227,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.x += SPEED;
+			position = position.translateX(SPEED);
 		}
 	};
 
@@ -253,7 +255,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.y -= SPEED;
+			position = position.translateY(-SPEED);
 		}
 	};
 
@@ -278,7 +280,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.y -= SPEED;
+			position = position.translateY(-SPEED);
 		}
 	};
 
@@ -303,7 +305,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.y += SPEED;
+			position = position.translateY(SPEED);
 		}
 	};
 
@@ -331,7 +333,7 @@ public class TestPlayer {
 
 		@Override
 		public void step() {
-			position.y += SPEED;
+			position = position.translateY(SPEED);
 		}
 	};
 

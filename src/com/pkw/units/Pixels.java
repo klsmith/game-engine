@@ -9,15 +9,11 @@ public class Pixels extends GenericUnit<Pixels> {
 	}
 
 	public static Pixels ofValue(double value) {
-		return Pixels.ofValue((int) value);
-	}
-
-	public static Pixels ofValue(int value) {
 		return new Pixels(value);
 	}
 
-	public static Pixels pixels(int value) {
-		return ofValue(value);
+	public static Pixels pixels(double value) {
+		return new Pixels(value);
 	}
 
 	@Override
@@ -33,7 +29,6 @@ public class Pixels extends GenericUnit<Pixels> {
 
 	@Override
 	protected Pixels from(Double value) {
-		// TODO Auto-generated method stub
-		return null;
+		return pixels(value.doubleValue());
 	}
 }

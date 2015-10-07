@@ -20,6 +20,7 @@ public abstract class SwingGame implements Game {
 		isRunning = false;
 		frame = new JFrame(title);
 		frame.setSize(width, height);
+		frame.setVisible(true);
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent windowEvent) {
@@ -34,7 +35,6 @@ public abstract class SwingGame implements Game {
 				draw(ExpandedGraphics.from((Graphics2D) graphics));
 			}
 		});
-		frame.setVisible(true);
 	}
 
 	public abstract void draw(ExpandedGraphics graphics);
@@ -60,6 +60,8 @@ public abstract class SwingGame implements Game {
 	final public void onStart() {
 		beforeStart();
 		isRunning = true;
+		frame.revalidate();
+		frame.repaint();
 		afterStart();
 	}
 

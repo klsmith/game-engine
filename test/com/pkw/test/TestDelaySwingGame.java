@@ -60,6 +60,7 @@ public class TestDelaySwingGame extends DelaySwingGame {
 	}
 
 	public static void main(String[] args) {
-		(new TestDelaySwingGame()).run();
+		TestDelaySwingGame game = new TestDelaySwingGame();
+		game.run();
 	}
 }
